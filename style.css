@@ -47,6 +47,7 @@ body {
   box-shadow: 0px 1px 7px 3px #3333339e;
   transition: all 0.3s linear;
   cursor: pointer;
+  perspective: 100px;
 }
 
 img {
@@ -86,39 +87,39 @@ a:hover {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 230px;
   width: 210px;
-  animation: rotate 0.4s cubic-bezier(0.55, 0.09, 0.68, 0.53) 1;
+  animation: rotate 0.5s cubic-bezier(0.55, 0.09, 0.68, 0.53) 1;
 }
 
 .flip-rev {
-  animation: rotate-rev 0.4s cubic-bezier(0.55, 0.09, 0.68, 0.53) 1;
+  animation: rotate-rev 0.5s cubic-bezier(0.55, 0.09, 0.68, 0.53) 1;
 }
 
 @keyframes rotate {
   0% {
-    transform: rotateY(0);
+    transform: rotate3d(0, 1, 0, 0);
     opacity: 0;
   }
   50% {
-    transform: rotateY(90deg);
+    transform: rotate3d(0, 1, 0, 90deg);
     opacity: 0.5;
   }
   100% {
-    transform: rotateY(180deg);
+    transform: rotate3d(0, 1, 0, 180deg);
     opacity: 1;
   }
 }
 
 @keyframes rotate-rev {
   0% {
-    transform: rotateY(0);
+    transform: rotate3d(0, 1, 0, 0);
     opacity: 0;
   }
   50% {
-    transform: rotateY(-90deg);
+    transform: rotate3d(0, 1, 0, -90deg);
     opacity: 0.5;
   }
   100% {
-    transform: rotateY(-180deg);
+    transform: rotate3d(0, 1, 0, -180deg);
     opacity: 1;
   }
 }

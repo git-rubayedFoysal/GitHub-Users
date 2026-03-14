@@ -44,11 +44,13 @@ function show(e) {
 
   // toggle back to original if already flipped
   if (card.classList.contains("flip")) {
-    card.classList.remove("flip");
-    if (card.dataset.orig) {
-      card.innerHTML = card.dataset.orig;
-      card.classList.add("flip-rev");
-    }
+    setTimeout(() => {
+      card.classList.remove("flip");
+      if (card.dataset.orig) {
+        card.innerHTML = card.dataset.orig;
+        card.classList.add("flip-rev");
+      }
+    }, 100);
     return;
   }
 
@@ -65,13 +67,15 @@ function show(e) {
         throw new Error("Data not present.");
       }
       const info = await response.json();
-      card.innerHTML = `
+      setTimeout(() => {
+        card.innerHTML = `
             <p><span>Name:</span> ${info.name}</p>
             <p><span>Email:</span> ${info.email}</p>
             <p><span>Location:</span> ${info.location}</p>
             <p><span>Followers:</span> ${info.followers}</p>
             <p><span>Following:</span> ${info.following}</p>
           `;
+      }, 100);
     } catch (error) {
       title.textContent = error;
     }
